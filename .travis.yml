@@ -1,0 +1,11 @@
+sudo: required
+services :
+  - docker
+
+before_install:
+  - docker build -t gpdevop/DockerLearn -f Dockerfile.dev .
+
+
+script:
+  - docker run gpdevop/DockerLearn npm run test -- --coverage
+  
